@@ -7,8 +7,10 @@ function Login() {
       className="relative flex min-h-screen items-center justify-center bg-[#222831]"
       style={{ background: "url(https://cdn.pixabay.com/photo/2016/12/28/01/44/leaf-notebook-1935230_960_720.jpg) no-repeat center center fixed", backgroundSize: 'cover' }}
     >
- 
  <div className="absolute top-4 left-4 p-4 bg-[#6B4226] bg-opacity-80 rounded-md shadow-md">
+ <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg>
   <h2 className="text-lg font-bold text-white font-borracha">
     Coffee with Ideas
   </h2>
@@ -19,6 +21,7 @@ function Login() {
       <div className="absolute left-1/4 w-full max-w-md p-4 bg-white bg-opacity-80 rounded-md shadow-md" style={{ marginLeft: '-5cm' }}>
         <form>
           <div className="mb-8">
+            
             <h2 className="text-3xl font-bold text-[#6B4226]">Coffee with Ideas</h2>
           </div>
 
