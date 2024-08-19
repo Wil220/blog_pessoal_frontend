@@ -1,7 +1,7 @@
 import React from 'react';
 // import homeLogo from '../../assets/home.png'
 import './Home.css';
-
+import ListaPostagens from '../../componets/postagens/listaPostagens/ListaPostagens';
 
 function Home() {
     return (

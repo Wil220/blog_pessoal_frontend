@@ -11,6 +11,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import ListaTemas from './componets/temas/listarTemas/ListarTemas';
 import FormularioTema from './componets/temas/formularioTemas/FormularioTemas';
 import DeletarTema from './componets/temas/deletarTemas/DeteletarTemas';
+import ListaPostagens from './componets/postagens/listaPostagens/ListaPostagens';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
               <Route path="/cadastroTema" element={<FormularioTema />} />
               <Route path="/editarTema/:id" element={<FormularioTema />} />
               <Route path="/deletarTema/:id" element={<DeletarTema />} />
+              <Route path="/postagens" element={<ListaPostagens />} />
             </Routes>
           </div>
           <Footer />
