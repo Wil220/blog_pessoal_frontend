@@ -13,7 +13,6 @@ import FormularioTema from './componets/temas/formularioTemas/FormularioTemas';
 import DeletarTema from './componets/temas/deletarTemas/DeteletarTemas';
 import ListaPostagens from './componets/postagens/listaPostagens/ListaPostagens';
 import FormularioPostagem from './componets/postagens/formularioPostagem/FormularioPostagem';
-import DeletarPostagem from './componets/postagens/deletarPostagem/DeletarPostagem';
 
 
 function App() {
