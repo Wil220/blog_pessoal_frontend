@@ -1,32 +1,62 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react';
+import { Dna } from 'react-loader-spinner';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthContext';
+import Postagem from '../../../models/Postagem';
+import { buscar } from '../../../services/Services';
+import CardPostagem from '../cardPostgem/CardPostagem';
 
+function ListaPostagens() {
+  const [postagens, setPostagens] = useState<Postagem[]>([]);
 
-function CardPostagem() {
+  let navigate = useNavigate();
+
+  const { usuario, handleLogout } = useContext(AuthContext);
+  const token = usuario.token;
+  useEffect(() => {
+    if (token === '') {
+      alert('Você precisa estar logado');
+      navigate('/');
+    }
+  }, [token]);
+
+  async function buscarPostagens() {
+    try {
+      await buscar('/postagens', setPostagens, {
+        headers: {
+          Authorization: token,
+        },
+      });
+    } catch (error: any) {
+      if (error.toString().includes('403')) {
+        alert('O token expirou, favor logar novamente')
+        handleLogout()
+      }
+    }
+  }
+
+  useEffect(() => {
+    buscarPostagens();
+  }, [postagens.length]);
   return (
-    <div className='border-slate-900 border flex flex-col rounded overflow-hidden justify-between'>
-      <div>
-        <div className="flex w-full bg-indigo-400 py-2 px-4 items-center gap-4">
-          <img src='' className='h-12 rounded-full' alt="" />
-          <h3 className='text-lg font-bold text-center uppercase '>Nome:</h3>
-        </div>
-        <div className='p-4 '>
-          <h4 className='text-lg font-semibold uppercase'>Titulo:</h4>
-          <p>texto base</p>
-          <p>Tema: </p>
-          <p>Data: </p>
-        </div>
+    <>
+      {postagens.length === 0 && (
+        <Dna
+          visible={true}
+          height="200"
+          width="200"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper mx-auto"
+        />
+      )}
+      <div className='container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+        {postagens.map((postagem) => (
+          <CardPostagem key={postagem.id} post={postagem} />
+        ))}
       </div>
-      <div className="flex">
-      <Link to='' className='w-full text-white bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2'>
-          <button>Editar</button>
-        </Link>
-        <Link to='' className='text-white bg-red-400 hover:bg-red-700 w-full flex items-center justify-center'>
-          <button>Deletar</button>
-        </Link>
-      </div>
-    </div>
-  )
+    </>
+  );
 }
 
-export default CardPostagem
+export default ListaPostagens;
