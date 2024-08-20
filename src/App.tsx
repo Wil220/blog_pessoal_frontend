@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './App.css';
 
@@ -14,6 +13,7 @@ import FormularioTema from './componets/temas/formularioTemas/FormularioTemas';
 import DeletarTema from './componets/temas/deletarTemas/DeteletarTemas';
 import ListaPostagens from './componets/postagens/listaPostagens/ListaPostagens';
 import FormularioPostagem from './componets/postagens/formularioPostagem/FormularioPostagem';
+import DeletarPostagem from './componets/postagens/deletarPostagem/DeletarPostagem';
 
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
           <Navbar />
           <div className='min-h-[80vh]'>
             <Routes>
-              <Route path="/" element={<Login />} />
+            <Route path="/" element={<Login />} />
               <Route path="/login" element={<Login />} />
               <Route path="/cadastro" element={<Cadastro />} />
               <Route path="/home" element={<Home />} />
