@@ -32,7 +32,7 @@ function FormularioPostagem() {
   });
 
   async function buscarPostagemPorId(id: string) {
-    await buscar(`/postagens/${id}`, setPostagem, {
+    await buscar(`/Postagens/${id}`, setPostagem, {
       headers: {
         Authorization: token,
       },
@@ -88,7 +88,7 @@ function FormularioPostagem() {
   }
 
   function retornar() {
-    navigate('/postagens');
+    navigate('/Postagens');
   }
 
   async function gerarNovaPostagem(e: ChangeEvent<HTMLFormElement>) {
@@ -98,7 +98,7 @@ function FormularioPostagem() {
 
     if (id != undefined) {
       try {
-        await atualizar(`/postagens`, postagem, setPostagem, {
+        await atualizar(`/Postagens`, postagem, setPostagem, {
           headers: {
             Authorization: token,
           },
@@ -115,7 +115,7 @@ function FormularioPostagem() {
       }
     } else {
       try {
-        await cadastrar(`/postagens`, postagem, setPostagem, {
+        await cadastrar(`/Postagens`, postagem, setPostagem, {
           headers: {
             Authorization: token,
           },

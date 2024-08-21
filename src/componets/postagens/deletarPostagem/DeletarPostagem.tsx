@@ -17,7 +17,7 @@ function DeletarPostagem() {
 
   async function buscarPorId(id: string) {
     try {
-      await buscar(`/postagens/${id}`, setPostagem, {
+      await buscar(`/Postagens/${id}`, setPostagem, {
         headers: {
           'Authorization': token
         }
@@ -44,12 +44,12 @@ function DeletarPostagem() {
   }, [id])
 
   function retornar() {
-    navigate("/postagens")
+    navigate("/Postagens")
   }
 
   async function deletarPostagem() {
     try {
-      await deletar(`/postagens/${id}`, {
+      await deletar(`/Postagens/${id}`, {
         headers: {
           'Authorization': token
         }
